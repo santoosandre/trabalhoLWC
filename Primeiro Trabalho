@@ -1,0 +1,63 @@
+// HTML
+<template>
+  <lightning-card>
+    <div class="slds-m-around_medium" if:true={visible1}>
+
+      <h1 class="slds-text-heading_large">
+        Propriedades
+      </h1>
+    </div>
+    <div class="slds-m-around_medium">
+      <p>Empresa:{empresa}</p>
+      <p>Cnpj:{CNPJ}</p>
+      <p>Endereço:{endereco} </p>
+
+    </div>
+    <div class="slds-m-around_medium" if:true={visible2}>
+      <p>Produto:{produto} </p>
+      <p>Descrição:{descricao}</p>
+      <p>Preço:R$ {preco} </P>
+    </div>
+
+    <div class="slds-m-around_medium" if:true={visible3}>
+      <p>Promoção:{promocao} </p>
+      <p>Oferta1:{oferta1} </p>
+      <p>Oferta2:{oferta2} </P>
+    </div>
+
+    <lightning-button variant="brand" label="Clique aqui" title="Alterar visible" onclick={handleClick}
+      class="slds-m-left_x-small"></lightning-button>
+  </lightning-card>
+</template>
+ 
+ // JS
+ 
+ import { LightningElement } from "lwc";
+
+export default class App extends LightningElement {
+  //criar variaveis de atributos
+empresa = "lulinha modas"
+CNPJ =  "54545454"
+endereco = "bla bla"
+
+
+produto = "picanha"
+descrição = " picanha barata"
+preço = "R$ 30"
+
+
+promoção = "so as fim de semana"
+oferta1 = "R$ 15"
+oferta2 =" R$ 25"
+
+
+ visible1 = true;
+ visible2 = true;
+ visible3 = true;
+
+        handleClick() {
+          this.visible2 = !this.visible2;
+          this.visible3 = !this.visible3;
+ }
+
+  }
